@@ -4,7 +4,6 @@ Sam Space|3453453456
 Scarlett Johansson|5121231111
 Olivia Munn|2103212222
 Christina Hendricks|5121232222
-Megan Fox|2102223333
 Natalie Portman|5123334444
 Salma Hayek|2104445555
 Olivia Wilde|5125556666
@@ -14,5 +13,4 @@ Charlize Theron|2108889999
 Stephanie|2104347676
 Ryan Orsinger|135434534
 Justin something|2103232323
-Doug someting|2103233232
-Kylie Kenner|2134241423
+Doug Hooker|2105454545
