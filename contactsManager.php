@@ -6,16 +6,16 @@ do{
 	$filename = 'contacts.txt';
 	$handle =  fopen($filename, 'r');
 	$contents = fread($handle, filesize($filename));
-	var_dump($contents);
 	fclose($handle);
+	$contents = explode("\n", $contents);
 	//get user input
-	$guess = fwrite(STDIN, PHP_EOL);
+	$guess = trim(fgets(STDIN));
 	$guess = explode(" ", $guess);
 	//user input fuctionality
 	switch ($guess[0]) {
 		//Display all contacts
 		case '1':
-			fwrite(STDOUT, $contents);
+			var_dump($contents);
 		break;
 		//Add a contact
 		case '2':
@@ -26,6 +26,7 @@ do{
 		//Search for a contact
 		case '3':
 			$var = array_search($guess[1], $contents);
+			var_dump($var);
 			fwrite(STDOUT, $contents[$var]);
 		break;
 		//Delete a contact
@@ -43,4 +44,4 @@ do{
 			fwrite(STDOUT, "First character needs to be a number between 1-5!");
 			break;
 	}
-}while($true);
+}while(!$true);
