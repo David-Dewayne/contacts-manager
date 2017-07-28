@@ -67,29 +67,39 @@ do{
 		//Delete a contact
 		case '4':
 			$var =false;
-			foreach ($contents as $key ) {
-				if($key['name'] == ($guess[1]." ".$guess[2])){
-					unset($key);
+			foreach ($contents as $key => $value) {
+				if($value['name'] == ($guess[1]." ".$guess[2])){
+					var_dump($key['name']);
+					unset($contents[$key]);
+					unset($contents[$key]);
+					var_dump($key['name']);
 					$var = true;
-
 				}
+			var_dump($contents[$key]['name']);
 			}
+			var_dump($contents[6]['name']);
 			if(!$var){
 				echo "no such thing";
 			}
 			else{
-			$handle =  fopen('contacts.txt', 'w');
-			$arrTemp = $contents;
-			$contents = implode($contents);
+				$handle =  fopen('contacts.txt', 'w');
+				$arrTemp = $contents;
+			foreach ($contents as $key => $value) {
+				$contents[$key] = implode("|",$value);
+			}
+			var_dump($contents);
+			$contents = implode(PHP_EOL,$contents);
+			$contents = str_replace("-","",$contents);
+			var_dump($contents);
 			fwrite($handle, $contents);
 			fclose($handle);
 			$contents = $arrTemp;
-				echo "The dead has been done";
+			echo "The deed has been done";
 			}
 		break;
 		//Exit
 		case '5':
-			$true = true;
+			die;
 		break;
 		case'help':
 			fwrite(STDOUT, "1:Display All" .PHP_EOL."2:Add a contact".PHP_EOL."3:Search for a contact".PHP_EOL."4:Delete A contact".PHP_EOL."5:exit the program");
